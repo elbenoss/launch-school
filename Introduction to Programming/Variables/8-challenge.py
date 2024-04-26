@@ -1,4 +1,3 @@
-
 initial_amount = 1000
 compound_interest = .05
 frequency = 1

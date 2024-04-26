@@ -1,4 +1,3 @@
-
 numbers = [3, 1, 5, 9, 2, 6, 4, 7]
 found_item = -1
 index = 0
