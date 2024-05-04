@@ -1,0 +1,32 @@
+# get two numbers
+# set sum var to sum of two numbers
+# print sum var
+
+# get list of strings
+# set result var to join on list
+# print result
+
+
+
+# get list of integers
+# set iterator to 0
+# while iterator < len(list)
+# if iterator modulo 2 is not 0
+# remove the value from that index
+# print list
+
+
+# get string and character
+# set count var
+# loop through 0 to length of string
+# if string at index of iterator equals character add 1 to count
+# if count equals 3 print current iterator value and break
+# if count is less than 3 return None
+
+
+
+# get two lists of numbers
+# set new list to naught
+# iterator through length of list
+# take iterator of each respective list and append to new list
+# print resultant list
