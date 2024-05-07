@@ -2,12 +2,13 @@
 # get operation from user
 # perform operation on numbers
 # print result to terminal
-# "/home/elbenoss/launch-school/py101/lesson-2/calculator/calculator_messages.json"
 import json
 
 with open(
     "calculator_messages.json", "r") as file:
     data = json.load(file)
+messages = data
+
 def prompt(message):
     print(f"==> {message}")
 
@@ -23,56 +24,60 @@ def invalid_language(language_c):
         return True
     return False
 
-while True:
-    # ask for language
-    prompt("Select a language: English or 日本語")
-    language = input()
-    while invalid_language(language.lower()):
-        prompt("invalid language")
-        language = input()
-
-    match language:
-        case 'english':
-            messages = data.get('english')
-        case 'japanese':
-            messages = data.get('japanese')
-        case '日本語':
-            messages = data.get('japanese')
-
-    prompt(messages['start'])
-
-    # ask for first number
-    prompt(messages['first'])
-    num1 = input()
-    while invalid_number(num1):
+def validate_number(number):
+    while invalid_number(number):
         prompt(messages['invalid'])
-        num1 = input()
+        number= input()
 
-    #ask for second number
-    prompt(messages['second'])
-    num2 = input()
-    while invalid_number(num2):
-        prompt(messages['invalid'])
-        num2 = input()
-
-    prompt(f"{num1} {num2}")
-
-    prompt(messages['operate'])
-    operation = input()
+def return_result(operation):
     while operation not in ["1", "2", "3", "4"]:
         prompt(messages['choose'])
         operation = input()
     match operation:
         case '1':
-            output = (float(num1) + int(num2))
+            return (float(num1) + int(num2))
         case '2':
-            output = (float(num1) - int(num2))
+            return (float(num1) - int(num2))
         case '3':
-            output = (float(num1) * float(num2))
+            return (float(num1) * float(num2))
         case '4':
-            output = (float(num1) // float(num2))
+            try:
+                output = float(num1) // float(num2)
+            except ZeroDivisionError:
+                return messages['zero']
+            return output
 
-    prompt(messages['result'] + str(output))
+def select_language(language):
+    while invalid_language(language.lower()):
+        prompt("invalid language")
+        language = input()
+    match language:
+        case 'english':
+            message_language = data.get('english')
+        case 'japanese':
+            message_language = data.get('japanese')
+        case '日本語':
+            message_language = data.get('japanese')
+    return message_language
+
+prompt("Select a language: English or 日本語")
+messages = (select_language(input()))
+prompt(messages['start'])
+while True:
+
+    prompt(messages['first'])
+    num1 = input()
+    validate_number(num1)
+
+    prompt(messages['second'])
+    num2 = input()
+    validate_number(num2)
+
+    prompt(f"{num1} {num2}")
+    prompt(messages['operate'])
+    result = return_result(input())
+
+    prompt(messages['result'] + str(result))
     prompt(messages['again'])
-    if input().lower() == 'n':
+    if input().lower() != 'y':
         break

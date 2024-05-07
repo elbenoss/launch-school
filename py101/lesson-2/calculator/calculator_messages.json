@@ -7,6 +7,7 @@
             "invalid": "Hmm... that doesn't look like a valid number.",
             "operate": "What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide",
             "choose": "You must choose 1, 2, 3, or 4",
+            "zero": "Cannot divide by zero",
             "result": "The result is: ",
             "again": "Would you like to perform another calculation?\nType y/n"
             
@@ -20,6 +21,7 @@
             "invalid": "あの。これは有効な数字ではありません",
             "operate": "演算子を割り出すか？\n1) 加える 2) 減じる 3) 増える 4) 割る",
             "choose": "1, 2, 3, と4を選択いなければならない",
+            "zero": "ゼロで割るとできない",
             "result": "答えです： ",
             "again": "あなたは一度計算をやりますか？\n✕/Ｏを入力してください"
                     
