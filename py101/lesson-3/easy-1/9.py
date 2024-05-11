@@ -7,3 +7,5 @@ advice = "Few things in life are as important as house training your pet dinosau
 # Expected output:
 # Few things in life are as important as
 print(advice[:advice.index("house"):])
+print(advice.split("house")[0])
+
