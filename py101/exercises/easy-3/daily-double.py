@@ -2,37 +2,17 @@
 # original string with all consecutive duplicate characters collapsed into a single character.
 
 def crunch(str):
-    new_list = [char for char in list(str)]
-    list_length = len(new_list)
-    i = 0
-    while i < list_length:
-        try:
-            new_list[-i] == new_list[-i-1]
-        except IndexError:
-            print("NO MORE INDEXED")
-        else:
-            if new_list[-i] == new_list[-i-1] and list_length > 1:
-                new_list.pop()
-                i -= 1
-        finally:
-            list_length = len(new_list)
-            i += 1
-    print(new_list)
-            
-
-
-
+    new_letters = []
+    for i in range(len(str)):
+        new_letters.append(str[i])
+        if str[i] == str[i-1] and i < len(str) and len(new_letters) > 1:
+            new_letters.pop()
+    return "".join(new_letters)
 
 # These examples should all print True
-# print(crunch('ddaaiillyy ddoouubbllee') == 'daily double')
-# print(crunch('4444abcabccba') == '4abcabcba')
-# print(crunch('ggggggggggggggg') == 'g')
-# print(crunch('abc') == 'abc')
-# print(crunch('a') == 'a')
-# print(crunch('') == '')
-
-
-
-# print(crunch('ggggggggggggggg'))
-print(crunch('ddaaiillyy ddoouubbllee'))
-
+print(crunch('ddaaiillyy ddoouubbllee') == 'daily double')
+print(crunch('4444abcabccba') == '4abcabcba')
+print(crunch('ggggggggggggggg') == 'g')
+print(crunch('abc') == 'abc')
+print(crunch('a') == 'a')
+print(crunch('') == '')
