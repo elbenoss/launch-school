@@ -7,4 +7,4 @@ loan_duration_months = loan_duration_years * 12
 
 monthly_payment = loan_amount * ( monthly_interest_rate / ( 1 - (1 + monthly_interest_rate) ** (-loan_duration_months) ) )
 
-print(monthly_payment)
+print(f"${round(monthly_payment, 2)}")
