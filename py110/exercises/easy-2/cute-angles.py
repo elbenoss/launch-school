@@ -4,10 +4,10 @@ def dms(number):
     split = str(number).split(".")
 
     if len(split) > 0:
-        degrees = '%0d' % number
+        degrees = int(number)
     if len(split) > 1:
-        minutes = (number - int('%d' % number)) * 60
-        seconds = (minutes - int('%d' % minutes)) * 60
+        minutes = (number - int(degrees)) * 60
+        seconds = (minutes - int(minutes)) * 60
 
     return f"{degrees}{DEGREE}{'%02d' % minutes}'{'%02d' % seconds}\""
 
