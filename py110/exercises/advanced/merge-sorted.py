@@ -8,13 +8,12 @@ Your solution should not mutate the input lists.
 """
 
 def merge(lst1, lst2):
-    res = []
-    count = 0
-
-
-    
-
-
+    res = lst1 + lst2
+    for i in range(1, len(res)):
+        for j in range(1, len(res)):
+            if res[j -1] > res[j]:
+                res[j - 1], res[j] = res[j], res[j - 1]
+    return res
 
 
 # All of these examples should print True

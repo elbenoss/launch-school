@@ -1,29 +1,10 @@
-
-
-
 def merge_sort(lst):
-    res = []
-    length = len(lst)
-    for i in range(length):
-        if not res:
-            res.append(lst[i])
-            print(res)
-        else:
-            print(i)
-            try:
-                res[i-1] < lst[i]
-            except:
-                pass
-            else:
-                print(lst[i])
-                mini = min(res)
-                if res[i-1] < lst[i]:
-                    res.append(lst[i])
-               else:
-                    res.insert(len(res) - i, lst[i])
-    print(res)
-
-
+    for i in range(1, len(lst)):
+        for j in range(1, len(lst)):
+            if lst[j - 1] > lst[j]:
+                lst[j - 1], lst[j] = lst[j], lst[j - 1]
+    return lst
+        
 
 
 # All of these examples should print True
