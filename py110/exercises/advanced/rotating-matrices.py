@@ -1,24 +1,24 @@
 def rotate90(m):
-    l = []
     res = []
-    length = len(m[0])
-    count = 0
-    if m:
 
-        for i in range(len(m)):
-            print(i, 'i')
-            count = 0
-            #for j in range(len(m)):
-            for j in range(len(m[i])):
-                print(j, 'j', m[i][j])
-                #l.append(m[j][i])
-                print(m[i], 'mi')
-
-            res += [l[::-1]]
-            l = []
-    print(res)
+    for i in range(len(m[0]) - 1, -1, -1):
+        temp = []
+        for j in range(len(m)):
+            temp.append(m[j][i])
+        res.insert(0, temp[::-1])
     return res
 
+
+"""
+input: list containing sub-lists
+output: values from sublists reorganized on 
+    * starting from last list
+    * starting from first element
+    ex. 3 items 3 sublists
+    2[0], 1[0], 0[0]
+    then
+    2[1], 1[1], 0[1]
+"""
 
 
 
