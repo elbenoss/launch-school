@@ -15,7 +15,7 @@ class Cat:
         return self._name
 
     def personal_greeting(self):
-        print(f"Hello! My name is {self._name}!")
+        print(f"Hello! My name is {self.name}!")
 
 kitty = Cat('Sophie')
 
